@@ -1,10 +1,15 @@
 package com.diegoduarte.usuario.infrastructure.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "telefone")
+@Builder
 public class Telefone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
