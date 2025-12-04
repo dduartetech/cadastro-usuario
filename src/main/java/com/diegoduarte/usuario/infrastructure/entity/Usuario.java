@@ -34,7 +34,7 @@ public class Usuario implements UserDetails {
     @OneToMany(cascade = CascadeType.ALL) /* cascade = quando excluir um usuario as
                                             outras tabelas (tel e end tb sumirão!) */
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    private List<Endereco> endereços;
+    private List<Endereco> enderecos;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
