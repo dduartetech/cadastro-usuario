@@ -101,4 +101,15 @@ public class UsuarioConverter {
         }
         return telefonesDTO;
     }
+
+    public Usuario updateUsuario (UsuarioDTO usuarioDTO, Usuario usuario) {
+        return Usuario.builder()
+                .nome(usuarioDTO.getNome() != null ? usuarioDTO.getNome() : usuario.getNome())
+                .email(usuarioDTO.getEmail() != null ? usuario.getEmail() : usuario.getEmail())
+                .id(usuario.getId())
+                .senha(usuarioDTO.getSenha() != null ? usuario.getSenha() : usuario.getSenha())
+                .enderecos(usuario.getEnderecos())
+                .telefones(usuario.getTelefones())
+                .build();
+    }
 }
