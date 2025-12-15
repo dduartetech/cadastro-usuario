@@ -70,6 +70,7 @@ public class UsuarioConverter {
 
     public EnderecoDTO paraEnderecoDTO (Endereco endereco) {
         return EnderecoDTO.builder()
+                .id(endereco.getId())
                 .rua(endereco.getRua())
                 .cep(endereco.getCep())
                 .bairro(endereco.getBairro())
@@ -89,6 +90,7 @@ public class UsuarioConverter {
 
     public TelefoneDTO paraTelefoneDTO (Telefone telefone) {
         return TelefoneDTO.builder()
+                .id(telefone.getId())
                 .ddd(telefone.getDdd())
                 .numero(telefone.getNumero())
                 .build();
@@ -110,6 +112,26 @@ public class UsuarioConverter {
                 .senha(usuarioDTO.getSenha() != null ? usuario.getSenha() : usuario.getSenha())
                 .enderecos(usuario.getEnderecos())
                 .telefones(usuario.getTelefones())
+                .build();
+    }
+
+    public Endereco updateEndereco (EnderecoDTO enderecoDTO, Endereco endereco) {
+        return Endereco.builder()
+                .id(enderecoDTO.getId())
+                .rua(enderecoDTO.getRua() != null ? enderecoDTO.getRua() : endereco.getRua())
+                .numero(enderecoDTO.getNumero() != null ? enderecoDTO.getNumero() : endereco.getNumero())
+                .bairro(enderecoDTO.getBairro() != null ? enderecoDTO.getBairro() : endereco.getBairro())
+                .estado(enderecoDTO.getEstado() != null ? enderecoDTO.getEstado() : endereco.getEstado())
+                .cep(enderecoDTO.getCep() != null ? enderecoDTO.getCep() : endereco.getEstado())
+                .complemento(enderecoDTO.getComplemento() != null ? enderecoDTO.getComplemento() : endereco.getComplemento())
+                .build();
+    }
+
+    public Telefone updateTelefone (TelefoneDTO telefoneDTO, Telefone telefone) {
+        return Telefone.builder()
+                .id(telefoneDTO.getId())
+                .numero(telefoneDTO.getNumero() != null ? telefoneDTO.getNumero() : telefone.getNumero())
+                .ddd(telefone.getDdd() != null ? telefoneDTO.getDdd() : telefone.getDdd())
                 .build();
     }
 }
