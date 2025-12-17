@@ -28,7 +28,7 @@ public class Usuario implements UserDetails {
     @Column (name = "email", length = 100)
     private String email;
 
-    @Column (name = "senha", length = 8)
+    @Column (name = "senha")
     private String senha;
 
     @OneToMany(cascade = CascadeType.ALL) /* cascade = quando excluir um usuario as
