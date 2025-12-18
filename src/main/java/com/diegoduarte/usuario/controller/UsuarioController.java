@@ -42,7 +42,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioService.buscaUsuarioPorEmail(email));
     }
 
-    @DeleteMapping("/{email}")
+    @DeleteMapping
     public ResponseEntity<Void> deletaUsuarioPorEmail(@PathVariable String email){
         usuarioService.deletaUsuarioPorEmail(email);
         return ResponseEntity.ok().build(); //.build ja q n temos retorno
@@ -64,17 +64,5 @@ public class UsuarioController {
     public ResponseEntity<TelefoneDTO> atualizaTelefone (@RequestBody TelefoneDTO telefoneDTO,
                                                          @RequestParam("id") Long id) {
         return ResponseEntity.ok(usuarioService.atualizaTelefone(id, telefoneDTO));
-    }
-
-    @PostMapping("/endereco")
-    public ResponseEntity<EnderecoDTO> cadastraEndereco (@RequestBody EnderecoDTO enderecoDTO,
-                                                         @RequestHeader("Authorizantion") String token) {
-        return ResponseEntity.ok(usuarioService.cadastraEndereco(token, enderecoDTO));
-    }
-
-    @PostMapping("/telefone")
-    public ResponseEntity<TelefoneDTO> cadastraTelefone (@RequestBody TelefoneDTO telefoneDTO,
-                                                         @RequestHeader("Authorizantion") String token) {
-        return ResponseEntity.ok(usuarioService.cadastraTelefone(token, telefoneDTO));
     }
 }
