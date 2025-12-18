@@ -33,4 +33,7 @@ public class Endereco {
 
     @Column(name = "bairro", length = 100)
     private String bairro;
+
+    @Column(name = "usuario_id")
+    private Long usuario_id;
 }
