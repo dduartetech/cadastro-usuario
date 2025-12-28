@@ -107,9 +107,9 @@ public class UsuarioConverter {
     public Usuario updateUsuario (UsuarioDTO usuarioDTO, Usuario usuario) {
         return Usuario.builder()
                 .nome(usuarioDTO.getNome() != null ? usuarioDTO.getNome() : usuario.getNome())
-                .email(usuarioDTO.getEmail() != null ? usuario.getEmail() : usuario.getEmail())
+                .email(usuarioDTO.getEmail() != null ? usuarioDTO.getEmail() : usuario.getEmail())
                 .id(usuario.getId())
-                .senha(usuarioDTO.getSenha() != null ? usuario.getSenha() : usuario.getSenha())
+                .senha(usuarioDTO.getSenha() != null ? usuarioDTO.getSenha() : usuario.getSenha())
                 .enderecos(usuario.getEnderecos())
                 .telefones(usuario.getTelefones())
                 .build();
